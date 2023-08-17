@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--<ThingDef ParentName="BaseBullet">
+		<defName>Kyon_57mmAT_Bullet</defName>
+		<label>57mm穿甲弹</label>
+		<graphicData>
+		  <texPath>Projectile/shell/A_Shell_Bullet</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		  <shaderType>TransparentPostLight</shaderType>
+		<drawSize>2.1</drawSize>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<damageDef>Kyon_57mmAT_Bullet_Bomb</damageDef>
+			<speed>200</speed>
+			<explosionRadius>0.9</explosionRadius>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+			<screenShakeFactor>0.1</screenShakeFactor>
+		</projectile>
+	</ThingDef>-->
+	
+	<ThingDef ParentName="BaseBullet">
+    <defName>Kyon_57mmAT_Bullet</defName>
+    <label>57mm Anti-Tank AP</label>
+    <graphicData>
+		<texPath>Projectile/shell/A_Shell_Bullet</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<shaderType>TransparentPostLight</shaderType>
+		<drawSize>2.1</drawSize>
+    </graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>100</damageAmountBase>
+			<armorPenetrationBase>0.75</armorPenetrationBase>
+			<stoppingPower>5</stoppingPower>
+			<speed>200</speed>
+		</projectile>
+	</ThingDef>
+</Defs>

@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
+		<defName>Kyon_57mmAT_Blueprint</defName>
+		<label>M1 57mm AT Gun</label>
+		<description>Direct-firing artillery for anti-armor usage. Needs to be towed by a vehicle, (NOT CURRENTLY IMPLEMENTED IN VF!) or pushed into position manually.</description>
+		<designationCategory>VVE_Vehicles</designationCategory>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Vehicles_ATGun/57mmAT/57mmAT</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>6</drawSize>
+			<!-- <drawOffset>(0, 0, 1)</drawOffset> -->
+		</graphicData>
+		
+		<researchPrerequisites>
+			<li>Gunsmithing</li>
+		</researchPrerequisites>
+		
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>500</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		
+		<size>(3,3)</size>
+		
+		<costList>
+			<VVE_CarWheel>2</VVE_CarWheel>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<ReinforcedBarrel>1</ReinforcedBarrel>
+			<Steel>120</Steel>
+		</costList>
+		
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<thingToSpawn>Kyon_57mmAT</thingToSpawn>
+		
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+	</Vehicles.VehicleBuildDef>
+	
+	<Vehicles.VehicleDef ParentName="VVE_VehiclePawn_Land">
+		<defName>Kyon_57mmAT</defName>
+		<label>M1 57mm AT Gun</label>
+		<description>Direct-firing artillery for anti-armor usage. Needs to be towed by a vehicle, (NOT CURRENTLY IMPLEMENTED IN VF!) or pushed into position manually.</description>
+		
+		<graphicData>
+			<texPath>Things/Vehicles/Vehicles_ATGun/57mmAT/57mmAT</texPath>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>6</drawSize>
+			<drawOffset>(0,0,0)</drawOffset>
+			<color>(138, 155, 96)</color>
+			<colorTwo>(69, 77, 48)</colorTwo>
+			<colorThree>(34, 38, 24)</colorThree>
+		</graphicData>
+		
+		<fillPercent>0.75</fillPercent>
+		
+		<nameable>false</nameable>
+		<buildDef>Kyon_57mmAT_Blueprint</buildDef>
+		
+		<size>(3,3)</size>
+		<uiIconScale>1.25</uiIconScale>
+		
+		<vehicleMovementPermissions>DriverNeeded</vehicleMovementPermissions>
+		<vehicleCategory>Transport</vehicleCategory>
+		<techLevel>Industrial</techLevel>
+		<vehicleType>Land</vehicleType>
+				
+		<statBases>
+			<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.75</ArmorRating_Sharp>
+			<Flammability>0</Flammability>
+			<MarketValue>875</MarketValue>
+		</statBases>
+
+		<vehicleStats>
+			<Mass>57</Mass>
+			<MoveSpeed>1</MoveSpeed>
+			<CargoCapacity>100</CargoCapacity>
+			<RepairRate>1</RepairRate>
+		</vehicleStats>
+		
+		<race>
+			<baseBodySize>2</baseBodySize>
+		</race>
+		
+		<!--<drawProperties>
+			<displayOffsetNorth>(0, -0.2)</displayOffsetNorth>
+			<displayOffsetEast>(-0.05, -0.2)</displayOffsetEast>
+			<displayOffsetSouth>(0, -0.2)</displayOffsetSouth>
+		</drawProperties>-->
+		
+		<properties>
+			<diagonalRotation>false</diagonalRotation>
+			<worldSpeedMultiplier>1.8</worldSpeedMultiplier>
+			<winterSpeedMultiplier>5</winterSpeedMultiplier>
+			<manhunterTargetsVehicle>true</manhunterTargetsVehicle>
+			<offRoadMultiplier>1.5</offRoadMultiplier>
+			
+			<customSnowCategoryTicks>
+				<Dusting>4</Dusting>
+				<Thin>8</Thin>
+				<Medium>16</Medium>
+				<Thick>24</Thick>
+			</customSnowCategoryTicks>
+			
+			<roles>
+				<li>
+					<key>gunnerA</key>
+					<label>Battery</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					<exposed>true</exposed>
+					
+					<hitbox>
+						<side>Body</side>
+					</hitbox>
+					
+					<handlingTypes>
+						<li>Movement</li>
+						<li>Turret</li>
+					</handlingTypes>
+					
+					<turretIds>
+						<li>atgun</li>
+					</turretIds>
+				
+					<pawnRenderer>
+						<layer>1</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>-1</layerSouth>
+						<layerEast>1</layerEast>
+						<angleNorth>0</angleNorth>
+						<angleEast>0</angleEast>
+						<angleNorthEast>0</angleNorthEast>
+						<angleSouthEast>0</angleSouthEast>
+						<drawOffsetNorth>(0.5,-0.5,0.25)</drawOffsetNorth>
+						<drawOffsetSouth>(-0.5,1,0.6)</drawOffsetSouth>
+						<drawOffsetEast>(-1,-1.5,-0.5)</drawOffsetEast>
+					</pawnRenderer>
+				</li>
+				<li>
+					<key>gunnerB</key>
+					<label>Battery</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					<exposed>true</exposed>
+					
+					<hitbox>
+						<side>Body</side>
+					</hitbox>
+					
+					<handlingTypes>
+						<li>Movement</li>
+						<li>Turret</li>
+					</handlingTypes>
+					
+					<turretIds>
+						<li>atgun</li>
+					</turretIds>
+				
+					<pawnRenderer>
+						<layer>0.9</layer>
+						<layerNorth>1</layerNorth>
+						<layerSouth>-1</layerSouth>
+						<layerEast>0.8</layerEast>
+						<angleNorth>0</angleNorth>
+						<angleEast>0</angleEast>
+						<angleNorthEast>0</angleNorthEast>
+						<angleSouthEast>0</angleSouthEast>
+						<drawOffsetNorth>(-0.5,-0.5,0.25)</drawOffsetNorth>
+						<drawOffsetSouth>(0.5,1,0.6)</drawOffsetSouth>
+						<drawOffsetEast>(-1,1.5,0.5)</drawOffsetEast>
+					</pawnRenderer>
+				</li>
+			</roles>
+		</properties>
+		
+		<components>
+			<li>
+				<key>LeftWheel</key>
+				<label>Wheel</label>
+				<health>20</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>RightWheel</key>
+				<label>Wheel</label>
+				<health>20</health>
+				<depth>External</depth>
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>GunShield</key>
+				<label>Mantle</label>
+				<health>250</health>
+				<depth>External</depth>
+				<hitWeight>8</hitWeight>	
+				<armor>
+					<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.75</ArmorRating_Sharp>
+				</armor>		
+				<hitbox><side>Front</side></hitbox>
+			</li>
+			<li>
+				<key>BreechBlock</key>
+				<label>Breech Block</label>
+				<health>40</health>
+				<depth>Internal</depth>
+			</li>
+			<li>
+				<key>LeftGunRack</key>
+				<label>Left Gun Mount</label>
+				<health>50</health>
+				<depth>External</depth>
+				<hitbox>
+					<side>Back</side>
+				</hitbox>
+			</li>
+			<li>
+				<key>RightGunRack</key>
+				<label>Right Gun Mount</label>
+				<health>50</health>
+				<depth>External</depth>
+				<hitbox>
+					<side>Back</side>
+				</hitbox>
+			</li>
+		</components>
+
+		<comps>
+			<li Class="Vehicles.CompProperties_VehicleTurrets">
+				<turrets>
+					<li>
+						<turretDef>57mmAT_Turret</turretDef>					
+						<renderProperties>
+							<north>(0,1)</north>
+							<south>(0,-0.5)</south>
+							<east>(0.5,0.4)</east>
+						</renderProperties>
+						
+						<gizmoLabel>Anti-Tank Gun</gizmoLabel>
+                        <angleRestricted>(345,15)</angleRestricted>
+						<aimPieOffset>(0, 0.2)</aimPieOffset>
+						<drawLayer>-1</drawLayer>						
+						<key>atgun</key>
+					</li>
+				</turrets>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+	
+	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
+		<defName>57mmAT_Turret</defName>
+		<label>Anti-Tank Gun</label>
+		<graphicData>
+			<texPath>Things/None</texPath>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>5</drawSize>
+		</graphicData>
+		<magazineCapacity>1</magazineCapacity>
+		<chargePerAmmoCount>5</chargePerAmmoCount>
+		<genericAmmo>true</genericAmmo>
+		<ammunition>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</ammunition>
+		<minRange>3.9</minRange>
+		<maxRange>59.9</maxRange>
+		<rotationSpeed>5</rotationSpeed>
+		<reloadTimer>3</reloadTimer>
+		<warmUpTimer>2.5</warmUpTimer>
+		<shotSound>VVE_Shot_BulldogCannonSound</shotSound>
+		<autoSnapTargeting>True</autoSnapTargeting>
+		<reloadSound>Artillery_ShellLoaded</reloadSound>
+		<projectile>Kyon_57mmAT_Bullet</projectile>
+		<projectileOffset>0</projectileOffset>	
+		<projectileShifting>			
+			<li>0</li>
+		  </projectileShifting>
+		  
+		<vehicleRecoil>
+			<distanceTotal>0.5</distanceTotal>
+			<distancePerTick>0.09</distancePerTick>
+			<speedMultiplierPostRecoil>0.35</speedMultiplierPostRecoil>
+		</vehicleRecoil>
+		<fireModes>
+			<li>
+				<shotsPerBurst>1</shotsPerBurst>
+				<ticksBetweenBursts>1</ticksBetweenBursts>
+				<spreadRadius>0</spreadRadius>
+				<label>AP</label>
+				<texPath>Icon/Pavia_Shell_Icon</texPath>
+			</li>
+		</fireModes>
+	</Vehicles.VehicleTurretDef>
+</Defs>
