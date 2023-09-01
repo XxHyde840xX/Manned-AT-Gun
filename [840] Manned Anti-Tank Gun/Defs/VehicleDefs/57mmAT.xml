@@ -5,7 +5,7 @@
 		<defName>Kyon_57mmAT_Blueprint</defName>
 		<label>M1 57mm AT Gun</label>
 		<description>Direct-firing artillery for anti-armor usage. Needs to be towed by a vehicle, (NOT CURRENTLY IMPLEMENTED IN VF!) or pushed into position manually.</description>
-		<designationCategory>VVE_Vehicles</designationCategory>
+		<designationCategory>VF_Vehicles</designationCategory>
 		
 		<graphicData>
 			<texPath>Things/Vehicles/Vehicles_ATGun/57mmAT/57mmAT</texPath>
